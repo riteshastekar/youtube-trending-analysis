@@ -29,11 +29,10 @@ for all_c in all_csv:
 
 for all_j in all_json:
     category_code = all_j[:2]
-    if category_code in category_code_map:
-        with open(os.path.join(path, all_j), "r", encoding="utf-8") as f:
-            items = json.load(f)["items"]
-        category_dfs[category_code] = pd.DataFrame(
-            [{"id": i["id"], "title": i["snippet"]["title"]} for i in items]
+    with open(os.path.join(path, all_j), "r", encoding="utf-8") as f:
+        items = json.load(f)["items"]
+    category_dfs[category_code] = pd.DataFrame(
+        [{"id": i["id"], "title": i["snippet"]["title"]} for i in items]
         )
 
 
