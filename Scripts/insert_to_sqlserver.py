@@ -98,7 +98,7 @@ def insert_df(df: pd.DataFrame, table_name: str, cursor, conn, batch_size: int =
     def to_native(v):
         if pd.isna(v):
             return None
-        if hasattr(v, "item"):   # numpy.int64, numpy.float64, numpy.bool_, etc.
+        if hasattr(v, "item"):  
             return v.item()
         return v
 
