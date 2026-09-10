@@ -9,7 +9,7 @@ BEGIN
 END;
 GO
 
--- Create the 'DataWarehouse' database
+-- Create the 'YoutubeDB' database
 CREATE DATABASE YoutubeDB;
 GO
 
