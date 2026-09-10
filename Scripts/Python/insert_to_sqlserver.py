@@ -3,7 +3,7 @@ import pandas as pd
 import os
 import json
 import pyodbc
-from connection_db import get_connection
+
 
 
 # Download latest version
@@ -41,6 +41,23 @@ for all_j in all_json:
     category_dfs[category_code] = pd.DataFrame(
         [{"id": i["id"], "title": i["snippet"]["title"]} for i in items]
         )
+# ---------------------------------------------------------------------------
+# Fix mojibake in JP/KR/RU video CSVs
+
+def fix_mojibake(df: pd.DataFrame) -> pd.DataFrame:
+    """Reverse UTF-8 text that was mis-written as Latin-1/cp1252 in the source CSV."""
+    for col in df.select_dtypes(include="object").columns:
+        df[col] = df[col].apply(
+            lambda x: x.encode("latin1", errors="replace").decode("utf-8", errors="replace")
+            if isinstance(x, str) else x
+        )
+    return df
+
+
+for code in ("JPvideos", "KRvideos", "RUvideos"):
+    if code in country_v_data:
+        country_v_data[code] = fix_mojibake(country_v_data[code])
+        
 
 
 Canada_df = country_v_data.get('CAvideos')
