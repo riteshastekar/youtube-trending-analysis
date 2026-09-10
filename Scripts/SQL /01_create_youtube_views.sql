@@ -205,3 +205,29 @@ UNION
 SELECT id,title FROM US_category;
 
 
+CREATE OR ALTER VIEW vw_country_handlingnulls AS
+SELECT
+    *,
+
+    CASE
+        WHEN video_id IS NULL
+          OR LTRIM(RTRIM(video_id)) = ''
+          OR video_id = '#NAME?'
+        THEN CONCAT(
+            country, '|INVALID_ID|',
+            title, '|',
+            channel_title, '|',
+            CONVERT(varchar(30), publish_time, 126)
+        )
+        ELSE CONCAT(country, '|', video_id)
+    END AS content_key,
+
+    CASE
+        WHEN video_id IS NULL
+          OR LTRIM(RTRIM(video_id)) = ''
+          OR video_id = '#NAME?'
+        THEN 'Invalid ID'
+        ELSE 'Valid ID'
+    END AS video_id_status
+FROM country_data;
+
