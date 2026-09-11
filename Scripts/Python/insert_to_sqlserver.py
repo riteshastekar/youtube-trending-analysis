@@ -85,17 +85,18 @@ Usa_category_df = category_dfs.get("US")
 
 #-----------------------------------------inserting data into sql server----------------------------------------------
 
-
+#---------- FIRST CREATE DATABASE AND TABLE USING SCRIPTS IN SQL AND INSERT YOUR DATA BASE AND SERVER NAME HERE
 conn_str = (
     "DRIVER={ODBC Driver 17 for SQL Server};"
-    r"SERVER=DESKTOP-8NDF801\SQLEXPRESS;"
-    "DATABASE=YoutubeDB;"
+    r"SERVER=YOUR SERVERNAME;"
+    "DATABASE=DATABASE NAME;"
     "Trusted_Connection=yes;"
 )
+#-----------------------------------------------------------------------------------------------------------------------
  
 conn = pyodbc.connect(conn_str)
 if conn is None:
-        print("FAILED TO CONNECT TO THE SERVER")
+        print("FAILED TO CONNECT TO THE SERVER CHECK THE SERVERNAME OR DATABASE CREATED")
 else:
         print("CONNECTED TO THE SERVER SUCCESFULLY")
         print("THIS WILL TAKE A WHILE")
