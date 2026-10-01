@@ -146,7 +146,7 @@ This allows invalid IDs to be handled without losing valid content-level analysi
 ### Daily Trending Analysis
 
 This dashboard analyses how content appears and remains on the YouTube Trending list.
-![Daily Trending Analysis] ()
+![Daily Trending Analysis] (https://github.com/riteshastekar/youtube-trending-analysis/blob/aa267ee69ac16ae72128b551a7b919a65b0b4f2c/Scripts/Power%20BI/Images/daily_trending_dashboard.PNG)
 
 Key visuals:
 
