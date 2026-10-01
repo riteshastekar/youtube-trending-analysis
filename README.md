@@ -146,7 +146,7 @@ This allows invalid IDs to be handled without losing valid content-level analysi
 ### Daily Trending Analysis
 
 This dashboard analyses how content appears and remains on the YouTube Trending list.
-![Daily Trending Analysis] (https://github.com/riteshastekar/youtube-trending-analysis/blob/aa267ee69ac16ae72128b551a7b919a65b0b4f2c/Scripts/Power%20BI/Images/daily_trending_dashboard.PNG)
+![Daily Trending Analysis](Scripts/PowerBi/Images/daily_trending_dashboard.PNG)
 
 Key visuals:
 
@@ -165,7 +165,7 @@ Average Trending Days
 ### Latest Trending Performance Analysis
 
 This dashboard analyses the final available Trending snapshot for each content item.
-
+![Latest Trending Performance Analysis](Scripts/PowerBi/Images/latest_trending_dashboard.PNG)
 Key visuals:
 
 - Category engagement
